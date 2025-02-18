@@ -4,7 +4,7 @@ import { CircleChevronRight } from "lucide-react";
 
 const LiveCam = () => {
   return (
-    <div className="flex flex-col gap-4  bg-card w-full rounded-xl p-6 border-2 border-card-outline text-secondary">
+    <div className="flex flex-col gap-4 h-80 bg-card w-full rounded-xl p-6 border-2 border-card-outline text-secondary">
       <div className="flex items-center justify-between">
         <span className="text-lg font-bold">Live Cam View</span>
         <Button className="bg-secondary text-primary text-lg px-5 hover:bg-hoverbg hover:text-white">
