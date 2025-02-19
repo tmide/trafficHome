@@ -11,9 +11,16 @@ export const chartData = [
 ];
 
 export const laneChartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 287, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 190, fill: "var(--color-other)" },
+  { browser: "chrome", visitors: 275, fill: "#BCFF34" },
+  { browser: "safari", visitors: 200, fill: "#46AED7" },
+  { browser: "firefox", visitors: 287, fill: "#FD8730" },
 ];
+
+export const sensorData = [
+  { month: "January", desktop: 186 },
+  { month: "February", desktop: 305 },
+  { month: "March", desktop: 237 },
+  { month: "April", desktop: 320 },
+  { month: "May", desktop: 209 },
+  { month: "June", desktop: 214 },
+]

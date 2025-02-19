@@ -15,54 +15,44 @@ import {
 import {
   ChartConfig,
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { laneChartData } from "@/Data";
 
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
   chrome: {
-    label: "Chrome",
+    label: "Trucks",
     color: "hsl(var(--chart-1))",
   },
   safari: {
-    label: "Safari",
+    label: "Bikes",
     color: "hsl(var(--chart-2))",
   },
   firefox: {
-    label: "Firefox",
+    label: "Cars",
     color: "hsl(var(--chart-3))",
-  },
-  edge: {
-    label: "Edge",
-    color: "hsl(var(--chart-4))",
-  },
-  other: {
-    label: "Other",
-    color: "hsl(var(--chart-5))",
   },
 }; // satisfies ChartConfig
 
-export function LaneCharts() {
+export function LaneChart({ title }) {
   const totalVisitors = React.useMemo(() => {
     return laneChartData.reduce((acc, curr) => acc + curr.visitors, 0);
   }, []);
 
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col border-none -mt-3">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Pie Chart - Donut with Text</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle className="text-lg font-bold">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="flex-1 pb-0">
+      <CardContent className="">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="aspect-square w-full h-full lg:max-h-[180px] "
         >
-          <PieChart>
+          <PieChart className="relative">
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
@@ -71,7 +61,7 @@ export function LaneCharts() {
               data={laneChartData}
               dataKey="visitors"
               nameKey="browser"
-              innerRadius={60}
+              innerRadius={45}
               strokeWidth={5}
             >
               <Label
@@ -87,16 +77,9 @@ export function LaneCharts() {
                         <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
+                          className="fill-secondary text-2xl font-bold"
                         >
                           {totalVisitors.toLocaleString()}
-                        </tspan>
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
-                        >
-                          Visitors
                         </tspan>
                       </text>
                     );
@@ -104,17 +87,13 @@ export function LaneCharts() {
                 }}
               />
             </Pie>
+            <ChartLegend
+              content={<ChartLegendContent nameKey="browser" />}
+              className="lg:absolute lg:bottom-10 lg:left-48 lg:flex lg:flex-col lg:items-start"
+            />
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
-      </CardFooter>
     </Card>
   );
 }

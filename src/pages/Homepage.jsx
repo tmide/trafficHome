@@ -7,6 +7,8 @@ import { VehicleWaitChart } from "@/components/VehichleWaitChart";
 import LiveCam from "@/components/LiveCam";
 import LaneCharts from "@/components/LaneChartsCard";
 import LaneChartsCard from "@/components/LaneChartsCard";
+import MiddleBottomLower from "@/components/MiddleBottomLower";
+import HeatMap from "@/components/HeatMap";
 
 const Homepage = () => {
   return (
@@ -43,17 +45,19 @@ const Homepage = () => {
 
         {/* Vehicle wait time chart  */}
         <VehicleWaitChart />
-
       </section>
 
       {/* MIDDLE SECTION  */}
       <section className="basis-3/5 flex-1 flex flex-col space-y-5 items-center ">
         <LiveCam />
         <LaneChartsCard />
+        <MiddleBottomLower />
       </section>
 
       {/* RIGHT SECTION  */}
-      <section className="basis-1/5 flex-1">right</section>
+      <section className="basis-1/5 flex-1">
+        <HeatMap />
+      </section>
     </div>
   );
 };

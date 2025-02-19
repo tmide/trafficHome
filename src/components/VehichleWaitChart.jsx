@@ -32,7 +32,7 @@ const chartConfig = {
 
 export function VehicleWaitChart() {
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <Card className="bg-card border-2 border-card-outline">
         <CardHeader>
           <CardTitle className="text-center text-lg font-bold text-secondary">
