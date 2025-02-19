@@ -9,6 +9,7 @@ import LaneCharts from "@/components/LaneChartsCard";
 import LaneChartsCard from "@/components/LaneChartsCard";
 import MiddleBottomLower from "@/components/MiddleBottomLower";
 import HeatMap from "@/components/HeatMap";
+import TurningActivity from "@/components/TurningActivity";
 
 const Homepage = () => {
   return (
@@ -55,8 +56,9 @@ const Homepage = () => {
       </section>
 
       {/* RIGHT SECTION  */}
-      <section className="basis-1/5 flex-1">
+      <section className="basis-1/5 flex-1 flex flex-col gap-6">
         <HeatMap />
+        <TurningActivity />
       </section>
     </div>
   );
